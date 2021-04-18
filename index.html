@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+		<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Simple admin dashboard.">
+		<link rel="icon" type="image/png" href="assets/img/favicon.png">
+		<title>Simple Admin Dashboard</title>
+
+		<link href="assets/css/font.css" rel="stylesheet">
+		<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/style.css" rel="stylesheet">
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+		<script src="assets/js/chart.min.js"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-dark sticky-top bg-dark p-0">
+			<a class="navbar-brand show" href="index.html">
+				<strong>Simple Dashboard</strong>
+			</a>
+			<a href="#" class="side-toggle btn btn-dark ml-1">
+				<i class="fas fa-bars"></i>
+			</a>  
+			<div class="px-3 ml-auto">
+				<div class="top-menu">
+					<a href="#" class="notif-toggle">
+						<i class="fas fa-bell"></i>
+						<span class="count badge badge-danger">4</span>
+					</a>
+					<div class="notif-content hidden-content">
+						<div class="notif-header">
+							<div class="notif-header-wrapper">
+								<div>Notifications</div>
+								<a href="#">Mark All As Read</a>
+							</div>
+						</div>
+						<div class="notif-body">
+							<a href="#">
+								<div class="bg-danger">
+									<i class="fas fa-exclamation-triangle"></i>
+								</div>
+								<div>
+									Server has been rebooted without proper shutdown.
+									<small>35 Minutes Ago.</small>
+								</div>
+							</a>
+							<a href="#">
+								<div class="bg-success">
+									<i class="fas fa-check"></i>
+								</div>
+								<div>
+									INV-3217 has been successfully paid.
+									<small>3 Hours Ago.</small>
+								</div>
+							</a>
+							<a href="#">
+								<div class="bg-warning">
+									<i class="fas fa-info"></i>
+								</div>
+								<div>
+									David B. cancelled INV-3218.
+									<small>7 Hours Ago.</small>
+								</div>
+							</a>
+							<a href="#">
+								<div class="bg-danger">
+									<i class="fas fa-exclamation-triangle"></i>
+								</div>
+								<div>
+									INV-3216 has passed the payment due date.
+									<small>16 Hours Ago.</small>
+								</div>
+							</a>
+						</div>
+						<div class="notif-footer">
+							<a href="#">View All</a>
+						</div>
+					</div>
+				</div>
+				<div class="top-menu">
+					<div class="user-content hidden-content">
+						<a href="profile.html">
+							<i class="fas fa-user-cog"></i>My Profile
+						</a>
+						<a href="#">
+							<i class="fas fa-list"></i>Activity
+						</a>
+						<a href="#">
+							<i class="fas fa-cog"></i>Preferences
+						</a>
+						<a href="#">
+							<i class="fas fa-sign-out-alt"></i>Logout
+						</a>
+					</div>
+				</div>
+  			</div>
+		</nav>
+
+		<aside class="sidebar show">
+			<div class="sidebar-sticky">
+				<div class="user-panel">
+					<div>
+						<h6>JAY</h6>
+						<small class="badge badge-info">Administrator</small>
+					</div>
+				</div>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="fas fa-chart-bar"></i>Dashboard
+                        </a>
+					
+				</ul>
+			</div>
+		</aside>
+		<main class="push">
+			<nav class="py-2">
+				<ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">Dashboard</li>				
+                </ol>
+            </nav>
+
+            <h4 class="title-jumbo">Dashboard<small class="text-muted">Show data in summary.</small></h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box">
+                                <div class="box-icon">
+                                    <i class="fas fa-clipboard-list bg-info"></i>
+                                </div>
+                                <div class="box-body">
+                                    <p>Task</p>
+                                    <p>36</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box">
+                                <div class="box-icon">
+                                    <i class="fas fa-shopping-cart bg-danger"></i>
+                                </div>
+                                <div class="box-body">
+                                    <p>Sales</p>
+                                    <p>173</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box">
+                                <div class="box-icon">
+                                    <i class="fas fa-hand-holding-usd bg-warning"></i>
+                                </div>
+                                <div class="box-body">
+                                    <p>Payments</p>
+                                    <p class="amount" id="paymentInfo">$1260.50</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="box">
+                                <div class="box-icon">
+                                    <i class="fas fa-users bg-success"></i>
+                                </div>
+                                <div class="box-body">
+                                    <p>Clients</p>
+                                    <p>403</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-8">
+                    <div class="card">
+                        <div class="card-header transparent">
+                            Monthly Traffic
+                            <button class="card-remove float-right">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="card-toggle float-right">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="monthly-traffic"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header transparent">
+                            Invoices
+                            <button class="card-remove float-right">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="card-toggle float-right">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+								<table class="table">
+									<thead>
+										<th>Invoice #</th>
+										<th>Customer</th>
+										<th>Item</th>
+										<th>Status</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<a href="#">INV-3215</a>
+											</td>
+											<td>Alex B.</td>
+											<td>NVIDIA GeForce RTX 2080</td>
+											<td>
+												<span class="badge badge-success">Paid</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">INV-3216</a>
+											</td>
+											<td>Thomas J.</td>
+											<td>AMD EPYC 7742</td>
+											<td>
+												<span class="badge badge-danger">Unpaid</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">INV-3217</a>
+											</td>
+											<td>Wilbur S.</td>
+											<td>Intel Xeon E5 2620</td>
+											<td>
+												<span class="badge badge-success">Paid</span>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<a href="#">INV-3218</a>
+											</td>
+											<td>David B.</td>
+											<td>NVIDIA GeForce RTX 3090</td>
+											<td>
+												<span class="badge badge-warning">Cancelled</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+                        </div>
+                    </div>
+				</div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="card">
+                        <div class="card-header transparent">
+                            Server Resource
+                            <button class="card-remove float-right">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="card-toggle float-right">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+							<div class="mb-2">
+								<h6>
+									CPU<span class="float-right">13%</span>
+								</h6>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated bg-success" style="width: 13%;"></div>
+								</div>
+							</div>
+							<div class="mb-2">
+								<h6>
+									Memory<span class="float-right">9762 / 16384 MB</span>
+								</h6>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 59%;"></div>
+								</div>
+							</div>
+							<div class="mb-2">
+								<h6>
+									Bandwidth<span class="float-right">7.8 / 10 TB</span>
+								</h6>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" style="width: 78%;"></div>
+								</div>
+							</div>
+							<div class="mb-2">
+								<h6>
+									Storage<span class="float-right">32 / 100 TB</span>
+								</h6>
+								<div class="progress">
+									<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 32%;"></div>
+								</div>
+							</div>
+                        </div>
+					</div>
+					<div class="card">
+                        <div class="card-header transparent">
+                            Visitor
+                            <button class="card-remove float-right">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button class="card-toggle float-right">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+							<canvas id="visitor" class="mb-5"></canvas>
+							<ul>
+								<li>
+									Indonesia
+									<span class="float-right">
+										<small class="text-success">
+											<i class="fas fa-chevron-up"></i>
+											9%
+										</small>
+									</span>
+								</li>
+								<li>
+									Singapore
+									<span class="float-right">
+										<small class="text-danger">
+											<i class="fas fa-chevron-down"></i>
+											2%
+										</small>
+									</span>
+								</li>
+								<li>
+									Japan
+									<span class="float-right">
+										<small class="text-warning">
+											<i class="fas fa-chevron-left"></i>
+											0%
+										</small>
+									</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+                </div>
+			</div>
+        </main>
+        <footer class="push">
+            &copy; 2021 <strong>Admin</strong>
+		</footer>
+		<script type="text/javascript">
+
+			let mtraffic = document.getElementById('monthly-traffic').getContext('2d');
+			let visitor = document.getElementById('visitor').getContext('2d');
+
+			new Chart(mtraffic, {
+				type: 'bar',
+				data: {
+					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+					datasets: [{
+						label: 'Total Traffic',
+						data: [5.3, 6.1, 5.8, 4.9, 7.2, 8.6, 5.6, 5.8],
+						backgroundColor: '#435ebe',
+						borderColor: '#2a3e88',
+						borderWidth: 1
+					}]
+				}, options: {
+                    tooltips: {
+                        callbacks: {
+                            label: function(item, data) {
+								return data.datasets[0].data[item.index]+' TB';
+                            }
+                        }
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                userCallback: function(value, index, values) {
+                                    return value+' TB';
+                                }
+                            }
+                        }]
+                    }
+                }
+			});
+			new Chart(visitor, {
+				type: 'doughnut',
+				data: {
+					labels: ['Indonesia', 'Singapore', 'Japan', 'United States', 'Other'],
+					datasets: [{
+						label: 'Visitor',
+						data: [432, 112, 256, 135, 65],
+						backgroundColor: [
+							'#e7443b',
+							'#ffc107',
+							'#48e062',
+							'#48e0e0',
+							'#656b6b'
+						]
+					}]
+				},options: {
+					legend: {
+						display: false
+					}
+				}
+			});
+		</script>
+    </body>
+</html>
